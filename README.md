@@ -1,9 +1,9 @@
 # Programe javascript
 
-##Programe telefoane mobile
+## Programe telefoane mobile
 
 
-##Programe tablete
+## Programe tablete
 
 
-##Programe smartwatch
+## Programe smartwatch
