@@ -1,17 +1,3 @@
-<DOCTYPE html>
-
-<html>
-
-<body>
-<input type = "text" id = "a"/>
-<input type = "text" id = "b"/>
-<input type = "text" id = "c"/>
-
-<button onclick = "rezolva()">Rezolva</button>
-
-<p id = "x1"></p>
-<p id = "x2"></p>
-<script>
 
 
 function rezolva()
@@ -42,7 +28,3 @@ function rezolva()
 
 }
 
-</script>
-</body>
-
-</html>
