@@ -7,4 +7,4 @@
 
 
 ## Programe smartwatch
-contact Flaviu Suciu
+Suciu Flaviu
