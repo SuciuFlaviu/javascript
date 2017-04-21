@@ -1,5 +1,7 @@
 window.addEventListener("touchstart", on_touch_start);
 window.addEventListener("touchmove", on_touch_move);
+window.addEventListener("touchend", on_touch_end);
+
 
 var touch_colors = ["#FF0000", "#00FF00", "#0000FF", "0F0F00", "#F0F0F0"];
 
@@ -45,6 +47,7 @@ function on_touch_move(evt)
 			}
 		ctx.beginPath();
 		ctx.moveTo(lastX, lastY);
+		ctx.lineWidth = 10;
 		ctx.lineTo(touches[i].pageX, touches[i].pageY);
 		touch_id[j].lastX = touches[i].pageX;
 		touch_id[j].lastY = touches[i].pageY;
@@ -53,4 +56,19 @@ function on_touch_move(evt)
 		ctx.arc(touches[i].pageX, touches[i].pageY, 5, 0, 2 * Math.PI);
 		ctx.stroke();
 	}
+}
+
+function on_touch_end(evt)
+{
+	var touches = evt.changedTouches;
+	
+	for (var i = 0; i < touches.length; i++)
+	for (var i = 0; j < touches_id.length; j++)
+		if (touches[i].identifier == touch_id[j].id){
+			touch_id.splice(j,1);
+			i--;
+			break;
+			
+		}
+		
 }
