@@ -6,22 +6,33 @@ document.addEventListener("mousedown", on_touch);
  
  var recognition = new webkitSpeechRecognition();
  recognition.lang = 'en-US';
+ recognition.maxAlternatives = 5;
 
+ var recognition_started = false;
  
  function on_touch(e)
  {
-	 recognition.start();
+	 if (!recognition_started){
+		  recognition.start();
+		  recognition_started = true;
+	 }
+	 
  }
  function on_end()
  {
 	 recognition.stop();
+	 recognition_started = false;
  }
  
- recognition.onend = on_end();
- recognition.onsoundend = on_end();
- recognition.onspeechend = on_end();
+ recognition.onend = on_end;
+ recognition.onsoundend = on_end;
+ recognition.onspeechend = on_end;
  
- recognition.onresult = function (e){
-	 document.getElementById("text").innerHTML = e.results[0][0].transcript + " " + e.results[0][0].confidence;
+ recognition.onresult = on_results;
+ 
+ function on_results(e){
+	 var alternatives = e.results [0];
+	 for(var i = 0;i < alternatives.length;i++)
+	 document.getElementById("text").innerHTML += alternatives[i].transcript + " " + alternatives[i].confidence + "<br>";
  }
  
