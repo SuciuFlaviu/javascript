@@ -7,7 +7,7 @@ c2.addEventListener("touchmove",on_touch_move);
 function on_touch_move(e)
 
 {
-for (var i = o;i<e.changedTouches.length;i++){
+for (var i = o;i<e.changedTouches.length; i++){
 	
 	var t = e.changedTouches[i];
 	var c = t.target;
@@ -16,3 +16,4 @@ for (var i = o;i<e.changedTouches.length;i++){
 	
 }
 
+}
